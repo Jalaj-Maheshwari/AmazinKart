@@ -1,5 +1,3 @@
-package amazinkart;
-
 import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 import java.net.MalformedURLException;
@@ -224,7 +222,7 @@ public class AmazinKart {
 	}
 
 	static void createJSONOutputFile(JSONArray productObj, String setName){
-		try (FileWriter file = new FileWriter("outputOfPromotion"+setName+".json")) {
+		try (FileWriter file = new FileWriter(".\\JSONFiles\\outputOfPromotion"+setName+".json")) {
        		file.write(productObj.toJSONString());
        		file.flush();
        	} catch (Exception ex){
@@ -260,7 +258,7 @@ public class AmazinKart {
 				}	
 				
 				// Persisting the original JSON response in a file before making any alterations.  
-        		try (FileWriter file = new FileWriter("originalProductDetails.json")) {
+        		try (FileWriter file = new FileWriter(".\\JSONFiles\\originalProductDetails.json")) {
             		file.write(products.toJSONString());
        				file.flush();
            		} catch (Exception ex){
@@ -322,15 +320,16 @@ public class AmazinKart {
 		System.out.println("Fetching product details");
 		JSONArray productDetails = getProductDetails();
 
-		System.out.println("Running PromotionSetA");
-		JSONArray productsA = runPromotionSetA(productDetails);
-
-		System.out.println("Running PromotionSetB");
-		JSONArray productsB = runPromotionSetB(productDetails);
-
-		System.out.println("Creating output JSON File for both Promotion Sets ");
-		createJSONOutputFile(productsA, "SetA");
-		createJSONOutputFile(productsB, "SetB");
-		System.out.println("Output files created");
+		if(args[0].equals("promotionSetA")){
+			System.out.println("Running PromotionSetA");
+			JSONArray productsA = runPromotionSetA(productDetails);
+			System.out.println("Creating output JSON File for Promotion Set A");
+			createJSONOutputFile(productsA, "SetA");
+		} else if (args[0].equals("promotionSetB")){
+			System.out.println("Running PromotionSetB");
+			JSONArray productsB = runPromotionSetB(productDetails);
+			System.out.println("Creating output JSON File for Promotion Set B");
+			createJSONOutputFile(productsB, "SetB");	
+		}		
 	}
 }
