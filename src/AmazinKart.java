@@ -158,7 +158,7 @@ public class AmazinKart {
 				discount.put("discountTag", discountTag);
 				currProductObj.put("discount", discount);	
 			}
-			System.out.println("Details of Product: " + i+1);
+			System.out.println("Details of Product: " + currProductObj.get("product"));
 			System.out.println(currProductObj);
 		}
 		return products;
@@ -215,7 +215,7 @@ public class AmazinKart {
 				discount.put("discountTag", discountTagB);
 				currProductObj.put("discount", discount);	
 			}
-			System.out.println("Details of Product: " + i+1);
+			System.out.println("Details of Product: " + currProductObj.get("product"));
 			System.out.println(currProductObj);
 		}
 		return products; 
