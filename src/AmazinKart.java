@@ -222,7 +222,7 @@ public class AmazinKart {
 	}
 
 	static void createJSONOutputFile(JSONArray productObj, String setName){
-		try (FileWriter file = new FileWriter(".\\JSONFiles\\outputOfPromotion"+setName+".json")) {
+		try (FileWriter file = new FileWriter("outputOfPromotion"+setName+".json")) {
        		file.write(productObj.toJSONString());
        		file.flush();
        	} catch (Exception ex){
@@ -258,7 +258,7 @@ public class AmazinKart {
 				}	
 				
 				// Persisting the original JSON response in a file before making any alterations.  
-        		try (FileWriter file = new FileWriter(".\\JSONFiles\\originalProductDetails.json")) {
+        		try (FileWriter file = new FileWriter("originalProductDetails.json")) {
             		file.write(products.toJSONString());
        				file.flush();
            		} catch (Exception ex){
