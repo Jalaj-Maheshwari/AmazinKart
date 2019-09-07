@@ -1,6 +1,6 @@
 # AmazinKart
 
-Running your code:
+Running the code:
 
 1. Clone the repository on your local machine- git clone https://github.com/Jalaj-Maheshwari/AmazinKart.git
 
